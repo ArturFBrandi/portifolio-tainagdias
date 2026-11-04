@@ -21,7 +21,6 @@
 
   --serif: "Fraunces", Georgia, serif;
   --sans:  "DM Sans", system-ui, -apple-system, sans-serif;
-  --hand:  "Caveat", cursive;
 }
 
 *,
@@ -70,10 +69,12 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   box-shadow: 0 0 0 4px rgba(138, 154, 126, .2);
 }
 .script {
-  font-family: var(--hand);
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
   color: var(--clay);
-  font-size: 2rem;
-  line-height: 1;
+  font-size: 1.7rem;
+  line-height: 1.1;
 }
 .script--lg { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 0; }
 
