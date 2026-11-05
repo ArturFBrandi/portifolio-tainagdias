@@ -252,15 +252,40 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
 .project--reverse { grid-template-columns: 1fr 1.6fr; }
 .project--reverse .project__gallery { order: 2; }
 
-.project__gallery {
+.project__gallery > * {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 0;
+}
+.project__gallery img { height: 100%; object-fit: cover; }
+
+/* Duas imagens lado a lado (ex.: capa + foto da exposição) */
+.project__gallery--duo {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr auto;
   gap: .8rem;
 }
-.project__gallery > :first-child { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
-.project__gallery > * { aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; margin: 0; }
-.project__gallery img { width: 100%; height: 100%; object-fit: cover; }
+.project__gallery--duo > * { aspect-ratio: 4 / 5; }
+
+/* Imagem com legenda sobreposta */
+.shot { position: relative; }
+.shot figcaption {
+  position: absolute;
+  left: .7rem; right: .7rem; bottom: .7rem;
+  padding: .6rem .85rem;
+  background: rgba(27, 36, 31, .78);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  font-size: .8rem;
+  line-height: 1.4;
+  color: var(--beige-2);
+}
+
+.btn--sm { padding: .65rem 1.3rem; font-size: .88rem; }
+.project__more { align-self: flex-start; margin-top: 1.6rem; }
 
 /* Espaço reservado para imagens */
 .ph {
@@ -489,6 +514,7 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   .nav__links a:not(.nav__cta) { display: none; }
   .bento { grid-template-columns: 1fr; }
   .card--wide { grid-column: auto; }
+  .project__gallery--duo { grid-template-columns: 1fr; }
   .section { padding-top: 5rem; }
   .contact { margin-inline: .8rem; border-radius: 120px 120px var(--radius) var(--radius); padding: 4rem 1.4rem; }
 }
